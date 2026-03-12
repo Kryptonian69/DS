@@ -11,7 +11,6 @@ Y = ds.iloc[:,3].values
 print("\nInput:",X)
 print("\nOutput:",Y)
 
-# HANDLING MISSING VALUES
 from sklearn.impute import SimpleImputer
 
 imputer = SimpleImputer(missing_values = np.nan,strategy = "mean")
@@ -19,7 +18,6 @@ imputer = imputer.fit(X[:,1:3])
 X[:,1:3] = imputer.fit_transform(X[:,1:3])
 print("\nNew Input with mean value for Nan:",X)
 
-# OUTLIERS
 import sklearn
 from sklearn.datasets import load_diabetes
 import pandas as pd
@@ -40,18 +38,14 @@ import numpy as np
 
 print(np.where(df_db['bmi']>0.12))
 
-# SORTING
 print(df_db)
 sorted = df_db.sort_values(by = ["age"])
 print(sorted)
 
-# FILTERING ROWS
 a = df_db.query('age>0')
 print(a)
-# FILTERING COLUMNS
 b = df_db.filter(['age','bp'])
 print(b)
-# GROUPING DATA
 g = df_db.groupby('age')
 g.first()
 
